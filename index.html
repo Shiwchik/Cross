@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="mainbox">
+            <div class="box__cross">
+                <div class="round"></div>
+                <div class="cross">
+                    <img src="adidas.png" alt="cross">
+                </div>
+            </div>
+            <div class="box__text">
+                <h1>Adidas ZX</h1>
+                <h2>FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.</h2>
+            </div>
+            <div class="size__buttons">
+                <button class="size__button">39</button>
+                <button class="size__button">40</button>
+                <button class="size__button">42</button>
+                <button class="size__button">44</button>
+            </div>
+            <div class="purchase__button">
+                <button class="purchase">Purchase</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    let container = document.querySelector(".container");
+    let mainbox = document.querySelector(".mainbox");
+    let cross = document.querySelector("img");
+    let h1 = document.querySelector("h1");
+    let h2 = document.querySelector("h2");
+    let sizebuttons = document.querySelector(".size__buttons");
+    let purchase = document.querySelector(".purchase");
+
+    container.addEventListener('mousemove', function(e) {
+        let osX = (window.innerWidth / 2 - e.clientX) / 20;
+        let osY = (window.innerHeight / 2 - e.clientY) / 20;
+        mainbox.style.transform = `rotateX(${osY}deg) rotateY(${osX}deg)`;
+    })
+
+    container.addEventListener('mouseenter', function() {
+        cross.style.transform = 'translateZ(120px) rotate(-45deg)';
+        h1.style.transform = 'translateZ(100px)';
+        h2.style.transform = 'translateZ(80px)';
+        sizebuttons.style.transform = 'translateZ(60px)';
+        purchase.style.transform = 'translateZ(40px)';
+    })
+    container.addEventListener('mouseleave', function() {
+        mainbox.style.transform = 'translateZ(0px)'
+        cross.style.transform = 'translateZ(0px) rotate(0deg)';
+        h1.style.transform = 'translateZ(0px)';
+        h2.style.transform = 'translateZ(0px)';
+        sizebuttons.style.transform = 'translateZ(0px)';
+        purchase.style.transform = 'translateZ(0px)';
+        container.style.transform = `rotateX(0) rotateY(0)`;
+    })
+</script>
+
+</html>
